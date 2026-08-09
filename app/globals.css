@@ -116,37 +116,37 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --colors-primary: #E7C9A5;
-  --colors-primary-admin: #25388C;
-  --colors-green: #027A48;
-  --colors-green-100: #ECFDF3;
-  --colors-green-400: #4C7B62;
-  --colors-green-500: #2CC171;
-  --colors-green-800: #027A48;
-  --colors-red: #027A48;
-  --colors-red-400: #F46F70;
-  --colors-red-500: #E27233;
-  --colors-red-800: #EF3A4B;
-  --colors-blue-100: #0089F1;
-  --colors-light-100: #D6E0FF;
-  --colors-light-200: #EED1AC;
-  --colors-light-300: #F8F8FF;
-  --colors-light-400: #EDF1F1;
-  --colors-light-500: #8D8D8D;
-  --colors-light-600: #F9FAFB;
-  --colors-light-700: #E2E8F0;
-  --colors-light-800: #F8FAFC;
-  --colors-dark-100: #16191E;
-  --colors-dark-200: #3A354E;
+  --colors-primary: #e7c9a5;
+  --colors-primary-admin: #25388c;
+  --colors-green: #027a48;
+  --colors-green-100: #ecfdf3;
+  --colors-green-400: #4c7b62;
+  --colors-green-500: #2cc171;
+  --colors-green-800: #027a48;
+  --colors-red: #027a48;
+  --colors-red-400: #f46f70;
+  --colors-red-500: #e27233;
+  --colors-red-800: #ef3a4b;
+  --colors-blue-100: #0089f1;
+  --colors-light-100: #d6e0ff;
+  --colors-light-200: #eed1ac;
+  --colors-light-300: #f8f8ff;
+  --colors-light-400: #edf1f1;
+  --colors-light-500: #8d8d8d;
+  --colors-light-600: #f9fafb;
+  --colors-light-700: #e2e8f0;
+  --colors-light-800: #f8fafc;
+  --colors-dark-100: #16191e;
+  --colors-dark-200: #3a354e;
   --colors-dark-300: #232839;
-  --colors-dark-400: #1E293B;
-  --colors-dark-500: #0F172A;
-  --colors-dark-600: #333C5C;
-  --colors-dark-700: #464F6F;
-  --colors-dark-800: #1E2230;
-  --colors-gray-100: #CBD5E1;
+  --colors-dark-400: #1e293b;
+  --colors-dark-500: #0f172a;
+  --colors-dark-600: #333c5c;
+  --colors-dark-700: #464f6f;
+  --colors-dark-800: #1e2230;
+  --colors-gray-100: #cbd5e1;
   --screen-xs: 480px;
-  --background-image-pattern: url('/images/pattern.webp');
+  --background-image-pattern: #0f172a;
 }
 
 .dark {
@@ -181,6 +181,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --background-image-pattern: url("/images/pattern.webp");
 }
 
 @layer base {
@@ -418,7 +419,6 @@
   }
 }
 
-
 @utility gradient-vertical {
   background: linear-gradient(180deg, #12141d 0%, #12151f 100%);
 }
@@ -450,7 +450,8 @@
 
 /* Root */
 @utility root-container {
-  @apply flex min-h-screen flex-1 flex-col bg-pattern bg-cover bg-top bg-dark-100 px-5 xs:px-10 md:px-16;
+  background: url("/images/pattern.webp");
+  @apply flex min-h-screen flex-1 flex-col bg-cover bg-top bg-dark-100 px-5 xs:px-10 md:px-16;
 }
 
 /* Book Details */
