@@ -47,7 +47,9 @@ const BookCover = ({
         <Image
             src={coverImage}
             alt="book"
-            width={22} height={22}
+            className="rounded-sm object-fill"
+            fill={true}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         {/* <IKImage
           path={coverImage}

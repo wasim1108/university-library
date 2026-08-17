@@ -90,9 +90,7 @@ const FileUpload = ({
   const onError = (error: any) => {
     console.log(error);
 
-    toast.error(`${type} upload failed`, {
-      description: `Your ${type} could not be uploaded. Please try again.`,
-    })
+    toast.error(`Your ${type} could not be uploaded. Please try again.`)
 
   };
 
@@ -100,9 +98,8 @@ const FileUpload = ({
     setFile(res);
     onFileChange(res.filePath);
 
-    toast.success(`${type} uploaded successfully`, {
-      description: `Your ${type} was uploaded successfully!`,
-    })
+    toast.success(`Your ${type} was uploaded successfully!`)
+    
   }
 
   /**
@@ -117,7 +114,10 @@ const FileUpload = ({
      */
   const handleUpload = async () => {
     // Access the file input element using the ref
+    
     const fileInput = ikUploadRef.current;
+    console.log(fileInput)
+    
     if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
       alert("Please select a file to upload");
       return;
@@ -186,6 +186,7 @@ const FileUpload = ({
           type="file"
           ref={ikUploadRef}
           accept={accept}
+          onChange={handleUpload}
         />
         {/* <button type="button" onClick={handleUpload}>
         Upload file
@@ -196,17 +197,21 @@ const FileUpload = ({
 
         <button
           className={cn("upload-btn", styles.button)}
+          type="button"
           onClick={(e) => {
             e.preventDefault();
 
             if (ikUploadRef.current) {
               // @ts-ignore
-              ikUploadRef.current?.click();
-              // handleUpload();
               
+              ikUploadRef.current?.click(); 
             }
           }}
         >
+        {/* <button
+          className={cn("upload-btn", styles.button)}
+          onClick={handleUpload}
+        > */}
           <Image
             src="/icons/upload.svg"
             alt="upload-icon"

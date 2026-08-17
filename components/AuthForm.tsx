@@ -24,6 +24,8 @@ import { Input } from "@/components/ui/input"
 import FileUpload from '@/components/FileUpload';
 import { FIELD_NAMES, FIELD_TYPES } from '@/constants';
 import Link from 'next/link';
+import { toast } from "sonner"
+import { useRouter } from 'next/navigation';
 
 interface Props<T extends FieldValues> {
     type: 'SIGN_IN' | 'SIGN_UP';
@@ -35,6 +37,7 @@ interface Props<T extends FieldValues> {
 const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit }: Props<T>) => {
 
     const isSignIn = type === "SIGN_IN";
+    const router = useRouter();
 
     const form: UseFormReturn<T> = useForm({
         resolver: zodResolver(schema),
@@ -42,6 +45,24 @@ const AuthForm = <T extends FieldValues>({ type, schema, defaultValues, onSubmit
     })
 
     const handleSubmit: SubmitHandler<T> = async (data) => {
+        const result = await onSubmit(data)
+        console.log(result)
+
+        if (result.success) {
+            // toast.success("Success", {
+            //     description: `isSignIn
+            //     ? "You have successfully signed in"
+            //     : "You have successfully signed up"`,
+            // })
+            toast.success(`${isSignIn 
+                ? "You have successfully signed in" 
+                : "You have successfully signed up"}
+                `)
+            router.push("/")
+        } else {
+            toast.error(`${isSignIn ? "signing in" : "signing up"}`)
+        }
+
 
     }
 

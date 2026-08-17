@@ -9,6 +9,7 @@ interface Props {
 
 const BookList = ({ title, books, containerClassName }: Props) => {
   if (books.length < 2) return;
+  // console.log(books)
 
   return (
     <section className={containerClassName}>
